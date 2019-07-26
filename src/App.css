@@ -1,0 +1,17 @@
+.App {
+  text-align: center;
+  height: calc(100vh - 26px);
+  display: flex;
+  flex-direction: row;
+}
+
+.App .JSON-input-area {
+  width: 50%;
+  margin-right: 20px;
+  background-color: red;
+}
+
+.App .Object-viewer {
+  width: 50%;
+  background-color: blue;
+}
