@@ -6,18 +6,7 @@ export default class Tree extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      treeData: [
-        {
-          title: 'articles',
-          children: [
-            { title: 'tags(9)' },
-            { title: 'tags(1)' },
-            { title: 'tags(2)' }
-          ]
-        }
-      ],
-    };
+    this.state = {treeData: [this.props.root]};
   }
 
   render() {
@@ -25,7 +14,7 @@ export default class Tree extends Component {
       <SortableTree
         canDrag={false}
         treeData={this.state.treeData}
-        onChange={treeData => this.setState({ treeData })}
+        onChange={(treeData) => this.setState({ treeData })}
       />
     );
   }
