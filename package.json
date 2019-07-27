@@ -1,5 +1,6 @@
 {
   "name": "jsonapi-payload-explorer",
+  "homepage": "https://veelenga.github.io/jsonapi-payload-explorer",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
