@@ -11,6 +11,7 @@ function serializeObject(data, included) {
     type: data.type,
     attributes: data.attributes,
     method: data.method,
+    expanded: true,
     children: []
   };
 
