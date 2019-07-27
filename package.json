@@ -6,7 +6,8 @@
     "react": "^16.8.6",
     "react-codemirror": "^1.0.0",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "react-sortable-tree": "^2.6.2"
   },
   "scripts": {
     "start": "react-scripts start",
