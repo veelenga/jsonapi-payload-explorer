@@ -9,8 +9,12 @@ export default class Tree extends Component {
     this.state = {
       treeData: [
         {
-          title: 'shows 123',
-          children: [{ title: 'tickets 12' }]
+          title: 'articles',
+          children: [
+            { title: 'tags(9)' },
+            { title: 'tags(1)' },
+            { title: 'tags(2)' }
+          ]
         }
       ],
     };

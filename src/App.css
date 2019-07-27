@@ -8,3 +8,7 @@
   width: 50%;
   border: 1px solid #eee;
 }
+
+.App .sidepane.invalid {
+  border: 2px solid #d69e9e;
+}
