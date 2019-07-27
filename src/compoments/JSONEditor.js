@@ -1,6 +1,6 @@
 import React from 'react';
 import 'codemirror/lib/codemirror.css';
-import sampleRequest from './SampleRequest.js';
+import samplePayload from './SamplePayload.js';
 import CodeMirror from 'react-codemirror';
 import 'codemirror/mode/javascript/javascript';
 import 'codemirror/theme/solarized.css';
@@ -9,7 +9,7 @@ import './JSONEditor.css';
 export default class JSONEditor extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: sampleRequest };
+    this.state = { value: samplePayload };
     this.handleChange = this.handleChange.bind(this);
   }
 
