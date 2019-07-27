@@ -4,12 +4,7 @@
   flex-direction: row;
 }
 
-.App .JSON-input-area {
-  width: 50%;
-  margin-right: 20px;
-}
-
-.App .Object-viewer {
+.App .sidepane {
   width: 50%;
   border: 1px solid #eee;
 }

@@ -1,15 +1,32 @@
 import React from 'react';
 import './App.css';
+
+import payloadSample from './PayloadSample.js';
 import JSONEditor from './compoments/JSONEditor';
 import Viewer from './compoments/Viewer';
 
-function App() {
-  return (
-    <div className="App">
-      <JSONEditor className="JSON-input-area"/>
-      <Viewer className="Object-viewer"/>
-    </div>
-  );
-}
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
 
-export default App;
+    this.state = { payload: payloadSample };
+    this.onPayloadChanged = this.onPayloadChanged.bind(this);
+  }
+
+  onPayloadChanged(payload) {
+    this.setState({ payload });
+  }
+
+  render() {
+    return(
+      <div className="App">
+        <JSONEditor
+          className="sidepane"
+          payload={this.state.payload}
+          onPayloadChanged={this.onPayloadChanged} />
+
+        <Viewer className="sidepane" payload={this.state.payload}/>
+      </div>
+    );
+  }
+}
