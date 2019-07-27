@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/jsonapi-payload-explorer/static/css/main.43c45bd4.chunk.css",
-    "main.js": "/jsonapi-payload-explorer/static/js/main.bf3d9dc1.chunk.js",
-    "main.js.map": "/jsonapi-payload-explorer/static/js/main.bf3d9dc1.chunk.js.map",
+    "main.js": "/jsonapi-payload-explorer/static/js/main.c474cb10.chunk.js",
+    "main.js.map": "/jsonapi-payload-explorer/static/js/main.c474cb10.chunk.js.map",
     "runtime~main.js": "/jsonapi-payload-explorer/static/js/runtime~main.f7b98f28.js",
     "runtime~main.js.map": "/jsonapi-payload-explorer/static/js/runtime~main.f7b98f28.js.map",
     "static/css/2.e1f11446.chunk.css": "/jsonapi-payload-explorer/static/css/2.e1f11446.chunk.css",
     "static/js/2.8deb88ad.chunk.js": "/jsonapi-payload-explorer/static/js/2.8deb88ad.chunk.js",
     "static/js/2.8deb88ad.chunk.js.map": "/jsonapi-payload-explorer/static/js/2.8deb88ad.chunk.js.map",
     "index.html": "/jsonapi-payload-explorer/index.html",
-    "precache-manifest.94d286989490f71f9fdffb27e165928d.js": "/jsonapi-payload-explorer/precache-manifest.94d286989490f71f9fdffb27e165928d.js",
+    "precache-manifest.bcc272ce83d062cd1934090762baeb60.js": "/jsonapi-payload-explorer/precache-manifest.bcc272ce83d062cd1934090762baeb60.js",
     "service-worker.js": "/jsonapi-payload-explorer/service-worker.js",
     "static/css/2.e1f11446.chunk.css.map": "/jsonapi-payload-explorer/static/css/2.e1f11446.chunk.css.map",
     "static/css/main.43c45bd4.chunk.css.map": "/jsonapi-payload-explorer/static/css/main.43c45bd4.chunk.css.map"
