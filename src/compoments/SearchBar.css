@@ -1,0 +1,11 @@
+.searchBar {
+  display: flex;
+}
+
+.searchBar .control {
+  margin-left: 20px;
+}
+
+.searchBar .stats {
+  margin-left: 10px;
+}

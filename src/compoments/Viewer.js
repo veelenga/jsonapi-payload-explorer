@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Tree from './Tree';
+import TreeView from './TreeView';
 
 import serialize from '../utils/serialize';
 import decorateForTree from '../utils/tree';
@@ -14,7 +14,7 @@ export default class Viewer extends Component {
 
     return(
       <div className={this.props.className}>
-        <Tree root={rootObject} key={this.props.payload}/>
+        <TreeView root={rootObject} key={this.props.payload}/>
       </div>
     );
   }
