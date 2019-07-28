@@ -23,7 +23,4 @@ export default class JSONEditor extends React.Component {
       </div>
     );
   }
-
-  styles: {
-  }
 }
