@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Tree from './Tree';
 
-import serializeToTree from '../utils/serialize_to_tree';
+import serialize from '../utils/serialize';
+import decorateForTree from '../utils/tree';
 
 export default class Viewer extends Component {
   render() {
@@ -9,7 +10,7 @@ export default class Viewer extends Component {
     try {
       json = JSON.parse(this.props.payload);
     } catch(_) {};
-    let rootObject = serializeToTree(json);
+    let rootObject = decorateForTree(serialize(json));
 
     return(
       <div className={this.props.className}>

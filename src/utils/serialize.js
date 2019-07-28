@@ -1,17 +1,18 @@
-export default function serializeToTree(object) {
+const TEMP_ID = 'temp-id';
+
+export default function serialize(object) {
   if (!object.data) return {};
   return serializeObject(object.data, object.included || []);
 }
 
 function serializeObject(data, included) {
   let object = {
-    title: data.type,
     id: data.id,
-    'temp-id': data['temp-id'],
+    tempId: data[TEMP_ID],
+    uuid: `${data.type}-${data.id || data[TEMP_ID]}`,
     type: data.type,
-    attributes: data.attributes,
+    attributes: data.attributes || {},
     method: data.method,
-    expanded: true,
     children: []
   };
 
@@ -44,12 +45,12 @@ function serializeRelationship(data, included) {
 }
 
 function findInIncluded(data, included) {
-  let { id, type, 'temp-id': tempId } = data;
+  let { id, type, [TEMP_ID]: tempId } = data;
 
   if (!!id) {
     return included.find((data) => data.type === type && data.id === id);
   } else if (!!tempId) {
-    return included.find((data) => data.type === type && data['temp-id'] === tempId);
+    return included.find((data) => data.type === type && data[TEMP_ID] === tempId);
   }
 
   return null;

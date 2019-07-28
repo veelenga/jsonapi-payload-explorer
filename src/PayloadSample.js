@@ -17,7 +17,8 @@ export default `{
       "type": "tags",
       "temp-id": "1",
       "attributes": {
-        "label": "JSON"
+        "label": "JSON",
+        "total": 42
       }
     },
     {
