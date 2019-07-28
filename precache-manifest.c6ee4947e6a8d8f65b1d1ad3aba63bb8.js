@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3af67c30f8b4d811ad075f1e526bd932",
+    "revision": "9252e6f4e9002637efccd72c70ca1fa1",
     "url": "/jsonapi-payload-explorer/index.html"
   },
   {
-    "revision": "07dc94a98c6a427cab17",
+    "revision": "5d30b97ac49f5b1f6710",
     "url": "/jsonapi-payload-explorer/static/css/2.e1f11446.chunk.css"
   },
   {
-    "revision": "abadf1d17463e94b6fe3",
+    "revision": "214848ffbce944e8f3f8",
     "url": "/jsonapi-payload-explorer/static/css/main.21841eaf.chunk.css"
   },
   {
-    "revision": "07dc94a98c6a427cab17",
-    "url": "/jsonapi-payload-explorer/static/js/2.8deb88ad.chunk.js"
+    "revision": "5d30b97ac49f5b1f6710",
+    "url": "/jsonapi-payload-explorer/static/js/2.9a855860.chunk.js"
   },
   {
-    "revision": "abadf1d17463e94b6fe3",
-    "url": "/jsonapi-payload-explorer/static/js/main.beb15e8b.chunk.js"
+    "revision": "214848ffbce944e8f3f8",
+    "url": "/jsonapi-payload-explorer/static/js/main.46b9d990.chunk.js"
   },
   {
     "revision": "425ceeca2e45edb78a2a",
