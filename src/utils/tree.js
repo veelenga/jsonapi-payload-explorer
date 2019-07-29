@@ -18,7 +18,7 @@ function title(object) {
   }
 
   let attr = object.id ? 'id' : 'temp-id';
-  return `${object.type} (${attr} = '${object.id || object.tempId}')`;
+  return `${object.type} > ${object.id || object.tempId} > ${attr}`;
 }
 
 function subtitle(object) {
