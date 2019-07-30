@@ -1,0 +1,9 @@
+.toolbar {
+  border: 1px solid #eee;
+  height: 18px;
+  vertical-align: middle;
+}
+
+.toolbar * {
+  margin-left: 15px;
+}

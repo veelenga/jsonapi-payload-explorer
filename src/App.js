@@ -2,8 +2,9 @@ import React from 'react';
 import cx from 'classnames';
 
 import payloadSample from './PayloadSample';
-import JSONEditor from './compoments/JSONEditor';
-import Viewer from './compoments/Viewer';
+import JSONEditor from './components/JSONEditor';
+import Viewer from './components/Viewer';
+import Toolbar from './components/Toolbar';
 
 import { safeJSONParse, formattedJSON } from './utils/json';
 import hashCode from './utils/string';
@@ -16,15 +17,21 @@ export default class App extends React.Component {
 
     let payload = payloadSample;
     let object = safeJSONParse(payloadSample);
-    this.state = { payload, object };
+    this.state = { payload, object, autoformat: true };
 
     this.onPayloadChanged = this.onPayloadChanged.bind(this);
+    this.onAutoformattingToggle = this.onAutoformattingToggle.bind(this);
   }
 
-  onPayloadChanged(payload) {
+  onPayloadChanged(payload, autoformat = this.state.autoformat) {
     let object = safeJSONParse(payload);
-    if (object) payload = formattedJSON(object);
-    this.setState({ payload, object });
+    if (object && autoformat) payload = formattedJSON(object);
+    this.setState({ payload, object, autoformat });
+  }
+
+  onAutoformattingToggle(event) {
+    let autoformat = event.target.checked;
+    this.onPayloadChanged(this.state.payload, autoformat);
   }
 
   render() {
@@ -33,6 +40,14 @@ export default class App extends React.Component {
     return(
       <div className="App">
         <div className="splitpane">
+          <Toolbar>
+            <input
+              className="autoformat"
+              type="checkbox"
+              onChange={this.onAutoformattingToggle}
+              checked={this.state.autoformat} /> Autoformat
+          </Toolbar>
+
           <JSONEditor
             className={ cx({ invalid: !object }) }
             payload={this.state.payload}
