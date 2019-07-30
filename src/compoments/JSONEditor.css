@@ -1,8 +1,8 @@
-.ReactCodeMirror {
+.react-codemirror2 {
   height: 100%;
 }
 
 .CodeMirror {
-  height: 100%;
   box-shadow: none !important;
+  height: calc(100% - 1px);
 }

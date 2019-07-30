@@ -6,15 +6,12 @@ import decorateForTree from '../utils/tree';
 
 export default class Viewer extends Component {
   render() {
-    let json = {};
-    try {
-      json = JSON.parse(this.props.payload);
-    } catch(_) {};
-    let rootObject = decorateForTree(serialize(json));
+    let { object, className, hash } = this.props;
+    let rootObject = object ? decorateForTree(serialize(object)) : {};
 
     return(
-      <div className={this.props.className}>
-        <TreeView root={rootObject} key={this.props.payload}/>
+      <div className={className}>
+        <TreeView root={rootObject} key={hash}/>
       </div>
     );
   }
