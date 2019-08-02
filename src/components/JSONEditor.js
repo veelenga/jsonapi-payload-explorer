@@ -12,10 +12,10 @@ export default class JSONEditor extends React.Component {
   constructor(props) {
     super(props);
 
-    this.handleOnChange = this.handleOnChange.bind(this);
+    this.handleOnChangeEditor = this.handleOnChangeEditor.bind(this);
   }
 
-  handleOnChange(editor, data, value) {
+  handleOnChangeEditor(editor, data, value) {
     let { removed, text } = data || {};
     if (removed && text && removed[0] === text[0]) return;
     this.props.onPayloadChanged(value);
@@ -23,9 +23,10 @@ export default class JSONEditor extends React.Component {
   render() {
     return(
       <div className={this.props.className}>
+
         <CodeMirror
           value={this.props.payload}
-          onChange={this.handleOnChange}
+          onChange={this.handleOnChangeEditor}
           autoCursor={false}
           options={{
             lineNumbers: true,

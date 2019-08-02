@@ -2,6 +2,10 @@
   display: flex;
 }
 
+.searchBar input {
+  margin-top: -1px;
+}
+
 .searchBar .control {
   margin-left: 20px;
 }

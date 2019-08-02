@@ -3,6 +3,7 @@ import SortableTree from 'react-sortable-tree';
 import 'react-sortable-tree/style.css';
 import './TreeView.css';
 import SearchBar from './SearchBar';
+import Toolbar from './Toolbar';
 
 const DEFAULT_ROW_HEIGHT = 62;
 
@@ -54,14 +55,16 @@ export default class TreeView extends Component {
 
     return (
       <div className="Tree-view">
-        <SearchBar
-          searchString={searchString}
-          currentSearchIndex={currentSearchIndex + 1}
-          totalFound={totalFound}
-          handleSearchOnChange={this.onSearchStringChange}
-          selectPrevMatch={this.selectPrevMatch}
-          selectNextMatch={this.selectNextMatch}
-          />
+        <Toolbar>
+          <SearchBar
+            searchString={searchString}
+            currentSearchIndex={currentSearchIndex + 1}
+            totalFound={totalFound}
+            handleSearchOnChange={this.onSearchStringChange}
+            selectPrevMatch={this.selectPrevMatch}
+            selectNextMatch={this.selectNextMatch}
+            />
+        </Toolbar>
 
         <SortableTree
           canDrag={false}
