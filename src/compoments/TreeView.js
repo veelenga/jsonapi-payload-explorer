@@ -65,8 +65,9 @@ export default class TreeView extends Component {
 
         <SortableTree
           canDrag={false}
-          rowHeight={(object) => DEFAULT_ROW_HEIGHT + (object.node.subtitleHeight|| 0)}
+          rowHeight={(object) => DEFAULT_ROW_HEIGHT + (object.node.subtitleHeight || 0)}
           treeData={treeData}
+          style={{ height: 'auto' }}
           onChange={(treeData) => this.setState({ treeData })}
           searchQuery={searchString}
           searchFocusOffset={currentSearchIndex}

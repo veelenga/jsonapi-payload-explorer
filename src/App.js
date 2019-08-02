@@ -32,15 +32,19 @@ export default class App extends React.Component {
 
     return(
       <div className="App">
-        <JSONEditor
-          className={ cx("sidepane", { invalid: !object }) }
-          payload={this.state.payload}
-          onPayloadChanged={this.onPayloadChanged} />
+        <div className="sidepane">
+          <JSONEditor
+            className={ cx({ invalid: !object }) }
+            payload={this.state.payload}
+            onPayloadChanged={this.onPayloadChanged} />
+        </div>
 
-        <Viewer className="sidepane"
-          object={this.state.object}
-          hash={hashCode(this.state.payload)}
-        />
+        <div className="sidepane">
+          <Viewer
+            object={this.state.object}
+            hash={hashCode(this.state.payload)}
+          />
+        </div>
       </div>
     );
   }
