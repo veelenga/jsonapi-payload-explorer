@@ -4,12 +4,12 @@
   flex-direction: row;
 }
 
-.App .sidepane {
+.App .splitpane {
   width: 50%;
   border: 1px solid #eee;
   position: relative;
 }
 
-.App .sidepane.invalid {
+.App .splitpane.invalid {
   border: 2px solid #d69e9e;
 }
