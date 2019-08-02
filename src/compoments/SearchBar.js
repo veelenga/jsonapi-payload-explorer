@@ -25,7 +25,7 @@ export default class Tree extends Component {
           <div className="control">
             <button className="previous" onClick={selectPrevMatch}> ‹ </button>
             <button className="next" onClick={selectNextMatch}> › </button>
-            <label class="stats"><span>{ stats }</span></label>
+            <label className="stats"><span>{ stats }</span></label>
           </div>
         }
       </div>
