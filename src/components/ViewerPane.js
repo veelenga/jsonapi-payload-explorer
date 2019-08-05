@@ -4,7 +4,7 @@ import TreeView from './TreeView';
 import serialize from '../utils/serialize';
 import decorateForTree from '../utils/tree';
 
-export default class Viewer extends Component {
+export default class ViewerPane extends Component {
   render() {
     let { object, className, hash } = this.props;
     let rootObject = object ? decorateForTree(serialize(object)) : {};

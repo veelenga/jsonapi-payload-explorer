@@ -2,7 +2,7 @@ import React from 'react';
 
 import payloadSample from './PayloadSample';
 import EditorPane from './components/EditorPane';
-import Viewer from './components/Viewer';
+import ViewerPane from './components/ViewerPane';
 
 import { safeJSONParse } from './utils/json';
 import hashCode from './utils/string';
@@ -37,7 +37,7 @@ export default class App extends React.Component {
           onPayloadChanged={this.onPayloadChanged}
         />
 
-        <Viewer
+        <ViewerPane
           className="splitpane"
           object={object}
           hash={hashCode(payload)}
