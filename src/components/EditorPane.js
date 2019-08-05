@@ -1,5 +1,4 @@
 import React from 'react';
-import cx from 'classnames';
 
 import JSONEditor from './JSONEditor';
 import Toolbar from './Toolbar';
@@ -46,7 +45,6 @@ export default class EditorPane extends React.Component {
         </Toolbar>
 
         <JSONEditor
-          className={ cx({ invalid: !object }) }
           payload={payload}
           onPayloadChanged={onPayloadChanged} />
 

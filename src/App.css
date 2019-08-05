@@ -9,7 +9,3 @@
   border: 1px solid #eee;
   position: relative;
 }
-
-.App .splitpane.invalid {
-  border: 2px solid #d69e9e;
-}
