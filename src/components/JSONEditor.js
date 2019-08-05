@@ -5,6 +5,8 @@ import { UnControlled as CodeMirror } from 'react-codemirror2';
 import 'codemirror/mode/javascript/javascript';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/solarized.css';
+import 'codemirror/keymap/vim.js';
+import 'codemirror/keymap/emacs.js';
 
 import './JSONEditor.css';
 
@@ -23,13 +25,13 @@ export default class JSONEditor extends React.Component {
   render() {
     return(
       <div className={this.props.className}>
-
         <CodeMirror
           value={this.props.payload}
           onChange={this.handleOnChangeEditor}
           autoCursor={false}
           options={{
             lineNumbers: true,
+            keyMap: this.props.keyMap || 'default',
             mode: { name: "javascript", json: true },
             theme: 'solarized',
             height: 'auto'
