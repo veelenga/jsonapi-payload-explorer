@@ -3,7 +3,7 @@
 }
 
 .searchBar input {
-  margin-top: -1px;
+  height: 11px;
 }
 
 .searchBar .control {
