@@ -40,10 +40,12 @@ export default `{
         "data": [
           {
             "type": "articles",
+            "method": "update",
             "id": "ef8d2384-1b1a-4f0a-95df-4d0100bb0731"
           },
           {
             "type": "articles",
+            "method": "update",
             "id": "238ff404-0f7d-4239-b32a-69f34f6ccefd"
           }
         ]
@@ -65,34 +67,42 @@ export default `{
           "data": [
             {
               "type": "comments",
+              "method": "update",
               "id": "1615fa9d-c04f-4ec4-8380-6106ed24be80"
             },
             {
               "type": "comments",
+              "method": "update",
               "id": "3b695293-f8f9-40d0-b824-46998778225c"
             },
             {
               "type": "comments",
+              "method": "update",
               "id": "21b20bb2-fd4c-48f8-92bb-f02ee8b2856f"
             },
             {
               "type": "comments",
+              "method": "update",
               "id": "7451369d-e31f-42a0-8cd8-2b7e0ce3a53c"
             },
             {
               "type": "comments",
+              "method": "update",
               "id": "c1dccf6e-0af7-48b4-a557-ec08fc5b9ba7"
             },
             {
               "type": "comments",
+              "method": "update",
               "id": "88a42201-bbfe-46ef-a08b-3fa3b2084d18"
             },
             {
               "type": "comments",
+              "method": "update",
               "id": "2e45bb10-7a79-427b-be91-9c28a5840009"
             },
             {
               "type": "comments",
+              "method": "update",
               "id": "02dd740c-8d1e-40ee-b085-fed672d15cb9"
             }
           ]
@@ -113,14 +123,17 @@ export default `{
           "data": [
             {
               "type": "comments",
+              "method": "update",
               "id": "94573b5e-c610-4bbc-b7d9-ef75675a9dcd"
             },
             {
               "type": "comments",
+              "method": "update",
               "id": "6bbbedc5-43f2-4202-884f-7ad531ce7790"
             },
             {
               "type": "comments",
+              "method": "update",
               "id": "c7b0bde6-31ae-4c94-81c5-268e133e5b83"
             }
           ]
@@ -140,62 +153,77 @@ export default `{
           "data": [
             {
               "type": "users",
+              "method": "update",
               "id": "1b00fbd4-867f-4706-aa39-52defc7a187b"
             },
             {
               "type": "users",
+              "method": "update",
               "id": "9474c435-84c2-468c-bc1e-c8563bd813c4"
             },
             {
               "type": "users",
+              "method": "update",
               "id": "d3553a79-383a-47f0-a83b-9039ccf4af8e"
             },
             {
               "type": "users",
+              "method": "update",
               "id": "42887430-2015-42a6-a15a-033be6bfe75a"
             },
             {
               "type": "users",
+              "method": "update",
               "id": "5cdab84e-4451-48ba-9059-927c80248e30"
             },
             {
               "type": "users",
+              "method": "update",
               "id": "26177444-b1c3-4471-b21c-c4408d0fefdb"
             },
             {
               "type": "users",
+              "method": "update",
               "id": "cdcec8b8-823c-4e9e-b53a-881662e9048e"
             },
             {
               "type": "users",
+              "method": "update",
               "id": "bae306a3-5a4d-4777-a8b8-9d02646f8c25"
             },
             {
               "type": "users",
+              "method": "update",
               "id": "7a32f17b-b0c2-445e-9a28-125c0a3f7ee9"
             },
             {
               "type": "users",
+              "method": "update",
               "id": "1a30aa82-a275-40cf-a087-82b4bc3cd34b"
             },
             {
               "type": "users",
+              "method": "update",
               "id": "f3b3742b-864a-4718-9553-97ba56665226"
             },
             {
               "type": "users",
+              "method": "update",
               "id": "9b7c1551-6f8b-45d9-af20-29e6e8a67e51"
             },
             {
               "type": "users",
+              "method": "update",
               "id": "f2c2cd75-1366-4539-868c-446472503871"
             },
             {
               "type": "users",
+              "method": "update",
               "id": "fb378a42-3975-4560-a4a6-fcfc67f700df"
             },
             {
               "type": "users",
+              "method": "update",
               "id": "26bbb797-1254-45e0-931b-615b3786bfef"
             }
           ]
