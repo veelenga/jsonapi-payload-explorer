@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "abd9fcb037751ebdb3f2f688119d63c0",
+    "revision": "634e171b0e9bbc9ba84a8401cdddd8f0",
     "url": "/jsonapi-payload-explorer/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/jsonapi-payload-explorer/static/css/2.82bec527.chunk.css"
   },
   {
-    "revision": "09449f8be88100b299fa",
+    "revision": "77e890e83b381f6d1f65",
     "url": "/jsonapi-payload-explorer/static/css/main.df44e895.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/jsonapi-payload-explorer/static/js/2.e605299a.chunk.js"
   },
   {
-    "revision": "09449f8be88100b299fa",
-    "url": "/jsonapi-payload-explorer/static/js/main.b5a04f42.chunk.js"
+    "revision": "77e890e83b381f6d1f65",
+    "url": "/jsonapi-payload-explorer/static/js/main.21b74bf6.chunk.js"
   },
   {
     "revision": "425ceeca2e45edb78a2a",
