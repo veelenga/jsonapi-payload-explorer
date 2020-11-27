@@ -1,0 +1,25 @@
+name: jsonapi-payload-explorer-server
+version: 0.1.0
+
+authors:
+  - Vitalii Elenhaupt <velenhaupt@gmail.com>
+
+crystal: 0.35.1
+
+license: MIT
+
+targets:
+  bootstrap:
+    main: src/main.cr
+
+
+dependencies:
+  crambda:
+    github: lambci/crambda
+  aws-dynamodb:
+    github: veelenga/aws-dynamodb.cr
+
+development_dependencies:
+  ameba:
+    github: crystal-ameba/ameba
+    version: ~> 0.13.0
