@@ -1,8 +1,8 @@
 require "./router"
 require "json"
 require "aws-dynamodb"
-require "hashids"
 require "base64"
+require "uuid"
 
 class App
   DYNAMO_TABLE_NAME = "Payloads"
@@ -25,7 +25,7 @@ class App
   end
 
   def handle_put_item(body)
-    payload_id = Hashids.new(min_hash_size: 8).encode([1])
+    payload_id = UUID.random.hexstring
 
     @dynamo.put_item(
       TableName: DYNAMO_TABLE_NAME,

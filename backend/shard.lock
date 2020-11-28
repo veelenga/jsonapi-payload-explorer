@@ -16,10 +16,6 @@ shards:
     git: https://github.com/lambci/crambda.git
     version: 0.2.0
 
-  hashids:
-    git: https://github.com/splattael/hashids.cr.git
-    version: 0.3.0
-
   radix:
     git: https://github.com/luislavena/radix.git
     version: 0.3.9
