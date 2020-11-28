@@ -10,10 +10,11 @@ license: MIT
 
 targets:
   bootstrap:
-    main: src/main.cr
-
+    main: src/lambda_handler.cr
 
 dependencies:
+  radix:
+    github: luislavena/radix
   crambda:
     github: lambci/crambda
   aws-dynamodb:
