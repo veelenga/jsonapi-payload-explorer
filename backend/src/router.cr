@@ -1,7 +1,7 @@
 require "radix"
 
 class Router
-  alias Response = NamedTuple(body: String, status: Int32)
+  alias Response = NamedTuple(body: String?, status_code: Int32)
   alias Handler = Hash(String, String), String -> Response
 
   def initialize

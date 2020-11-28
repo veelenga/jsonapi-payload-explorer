@@ -13,6 +13,9 @@ targets:
     main: src/lambda_handler.cr
 
 dependencies:
+  hashids:
+    github: splattael/hashids.cr
+    version: 0.3.0
   radix:
     github: luislavena/radix
   crambda:

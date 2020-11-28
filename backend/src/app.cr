@@ -1,12 +1,18 @@
 require "./router"
 require "json"
+require "aws-dynamodb"
+require "hashids"
+require "base64"
 
 class App
+  DYNAMO_TABLE_NAME = "Payloads"
+
   def initialize
     @router = Router.new
+    @dynamo = Aws::DynamoDB::Client.new
 
-    @router.when :post, "/payloads" do
-      handle_put_item
+    @router.when :post, "/payloads" do |_params, body|
+      handle_put_item(body)
     end
 
     @router.when :get, "/payloads/:id" do |params|
@@ -14,28 +20,50 @@ class App
     end
   end
 
-  def handle_put_item
-    {
-      body:   "create payload",
-      status: 201,
-    }
-  end
-
-  def handle_get_item(id)
-    {
-      body:   "find payload #{id}",
-      status: 200,
-    }
-  end
-
   def handle(route, body)
     @router.search(route, body) || handle_404
   end
 
+  def handle_put_item(body)
+    payload_id = Hashids.new(min_hash_size: 8).encode([1])
+
+    @dynamo.put_item(
+      TableName: DYNAMO_TABLE_NAME,
+      Item: {
+        PayloadId: {S: payload_id},
+        Value:     {B: Base64.strict_encode(body)},
+      }
+    )
+
+    {
+      body:        {payload_id: payload_id}.to_json,
+      status_code: 201,
+    }
+  end
+
+  def handle_get_item(payload_id)
+    item = @dynamo.get_item(
+      TableName: "Payloads",
+      Key: {
+        PayloadId: {S: payload_id},
+      },
+      ConsistentRead: true,
+      ReturnConsumedCapacity: "TOTAL"
+    )["Item"]
+
+    return handle_404 if item.nil?
+
+    value = item["Value"].b.not_nil!
+    {
+      body:        {payload: Base64.decode_string(value)}.to_json,
+      status_code: 200,
+    }
+  end
+
   def handle_404
     {
-      body:   {"message": "Not Found"}.to_json,
-      status: 404,
+      body:        {"message": "Not Found"}.to_json,
+      status_code: 404,
     }
   end
 end
