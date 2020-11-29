@@ -7,6 +7,12 @@ require "hashids"
 class App
   DYNAMO_TABLE_NAME = "Payloads"
 
+  DEFAULT_HEADERS = {
+    "Access-Control-Allow-Origin"  => ENV["CORS_DOMAINS"],
+    "Access-Control-Allow-Methods" => "POST",
+    "Access-Control-Allow-Headers" => "Content-Type, Authorization",
+  }
+
   def initialize
     @router = Router.new
     @dynamo = Aws::DynamoDB::Client.new(
@@ -39,9 +45,12 @@ class App
 
   def handle(route, body)
     @router.search(route, body) || handle_404
+  rescue e
+    puts e
+    handle_500
   end
 
-  def handle_put_item(payload)
+  private def handle_put_item(payload)
     binary = Base64.strict_encode(payload)
     payload_id = Hashids.new.encode([binary.hash % Int64::MAX])
 
@@ -59,9 +68,9 @@ class App
     }
   end
 
-  def handle_get_item(payload_id)
+  private def handle_get_item(payload_id)
     item = @dynamo.get_item(
-      TableName: "Payloads",
+      TableName: DYNAMO_TABLE_NAME,
       Key: {
         PayloadId: {S: payload_id},
       },
@@ -78,10 +87,17 @@ class App
     }
   end
 
-  def handle_404
+  private def handle_404
     {
       body:        {"message": "Not Found"}.to_json,
       status_code: 404,
+    }
+  end
+
+  private def handle_500
+    {
+      body:        {"message": "Internal Server Error"}.to_json,
+      status_code: 500,
     }
   end
 

@@ -9,9 +9,9 @@ server = HTTP::Server.new do |context|
   method, path, body = req.method, req.path, req.body.try(&.gets_to_end)
   result = app.handle("/#{method}#{path}", body)
 
-  res.headers.add("Access-Control-Allow-Origin", ENV["FE_URL"])
-  res.headers.add("Access-Control-Allow-Methods", "POST")
-  res.headers.add("Access-Control-Allow-Headers", "Content-Type, Authorization")
+  App::DEFAULT_HEADERS.each do |k, v|
+    res.headers.add(k, v)
+  end
 
   res.content_type = "application/json"
   res.status_code = result[:status_code]

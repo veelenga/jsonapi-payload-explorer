@@ -12,6 +12,7 @@ def handler(event : JSON::Any, context : Crambda::Context)
   {
     statusCode: result[:status_code],
     body:       result[:body],
+    headers:    App::DEFAULT_HEADERS,
   }
 end
 
