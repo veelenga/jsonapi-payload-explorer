@@ -14,7 +14,7 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
 
-    const search = window.location.search;
+    const search = this.props.location.search;
     const id = new URLSearchParams(search).get('id');
     if (id) {
       getPayload(id).then(this.onPayloadChanged.bind(this));
@@ -35,12 +35,14 @@ export default class App extends React.Component {
 
   render() {
     let { object, payload } = this.state;
+    let { history } = this.props;
 
     return(
       <div className="App">
         <EditorPane
           className="splitpane"
           object={object}
+          history={history}
           payload={payload}
           onPayloadChanged={this.onPayloadChanged}
         />

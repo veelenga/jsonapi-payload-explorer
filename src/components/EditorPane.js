@@ -30,7 +30,7 @@ export default class EditorPane extends React.Component {
 
   async onSaveClicked(payload, event) {
     const id = await savePayload(payload);
-    window.location.href = `/?id=${id}`;
+    this.props.history.push(`?id=${id}`);
   }
 
   render() {
