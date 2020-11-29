@@ -4,6 +4,8 @@ import JSONEditor from './JSONEditor';
 import Toolbar from './Toolbar';
 
 import { formattedJSON } from '../utils/json';
+import { savePayload } from '../utils/request';
+import { toast } from 'react-toastify';
 
 import './EditorPane.css';
 
@@ -25,6 +27,15 @@ export default class EditorPane extends React.Component {
     let { value } = event.target;
     let keyMap = value === 'vim' || value === 'emacs' ? value : 'default';
     this.setState({ keyMap });
+  }
+
+  onSaveClicked() {
+    savePayload(this.props.payload).then((id) => {
+      toast.success("Saved! Copy the URL to share 👆");
+      this.props.history.push(`?id=${id}`);
+    }).catch((e) => {
+      toast.error('Failed to save! Try again later');
+    });
   }
 
   render() {
@@ -58,6 +69,10 @@ export default class EditorPane extends React.Component {
             <option value="vim">Vim</option>
             <option value="emacs">Emacs</option>
           </select>
+
+          <button onClick={this.onSaveClicked.bind(this)}>
+            Save
+          </button>
 
         </Toolbar>
 

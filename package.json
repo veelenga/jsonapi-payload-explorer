@@ -10,8 +10,10 @@
     "react": "^16.8.6",
     "react-codemirror2": "^6.0.0",
     "react-dom": "^16.8.6",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.0.1",
-    "react-sortable-tree": "^2.6.2"
+    "react-sortable-tree": "^2.6.2",
+    "react-toastify": "^6.1.0"
   },
   "scripts": {
     "predeploy": "npm run build",
