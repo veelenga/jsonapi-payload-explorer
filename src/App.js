@@ -16,14 +16,9 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
 
-    const search = this.props.location.search;
-    const id = new URLSearchParams(search).get('id');
+    const id = this.searchPayloadIdParam(this.props);
     if (id) {
-      getPayload(id)
-        .then(this.onPayloadChanged.bind(this))
-        .catch(() => {
-          toast.error('Invalid payload identifier. Try a different one or create new.');
-        });
+      this.getAndProcessPayload(id);
       this.state = { payload: "", object: null };
     } else {
       let payload = payloadSample;
@@ -32,6 +27,24 @@ export default class App extends React.Component {
     }
 
     this.onPayloadChanged = this.onPayloadChanged.bind(this);
+  }
+  componentWillReceiveProps(nextProps) {
+    this.getAndProcessPayload(this.searchPayloadIdParam(nextProps));
+  }
+
+  searchPayloadIdParam(props) {
+    const { search } = props.location;
+    return new URLSearchParams(search).get('id');
+  }
+
+  getAndProcessPayload(id) {
+    if (id) {
+      getPayload(id)
+        .then(this.onPayloadChanged.bind(this))
+        .catch(() => {
+          toast.error('Invalid payload identifier. Try a different one or create new payload.');
+        });
+    }
   }
 
   onPayloadChanged(payload) {
