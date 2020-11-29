@@ -40,7 +40,7 @@ class App
 
   def handle_put_item(body)
     binary = Base64.strict_encode(body)
-    payload_id = Hashids.new(min_hash_size: 8).encode([binary.hash])
+    payload_id = Hashids.new.encode([binary.hash % Int64::MAX])
 
     @dynamo.put_item(
       TableName: DYNAMO_TABLE_NAME,
