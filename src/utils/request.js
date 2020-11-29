@@ -16,7 +16,7 @@ export async function savePayload(payload) {
   const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload)
+    body: JSON.stringify({ payload: payload })
   };
   const response = await fetch('http://127.0.0.1:8000/payloads', requestOptions);
   if (response.ok) {

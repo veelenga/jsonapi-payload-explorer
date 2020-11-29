@@ -12,7 +12,8 @@ class App
     @dynamo = Aws::DynamoDB::Client.new
 
     @router.when :post, "/payloads" do |_params, body|
-      handle_put_item(body)
+      payload = JSON.parse(body)["payload"].as_s? if body
+      handle_put_item(payload || "")
     end
 
     @router.when :get, "/payloads/:id" do |params|
@@ -38,8 +39,8 @@ class App
     @router.search(route, body) || handle_404
   end
 
-  def handle_put_item(body)
-    binary = Base64.strict_encode(body)
+  def handle_put_item(payload)
+    binary = Base64.strict_encode(payload)
     payload_id = Hashids.new.encode([binary.hash % Int64::MAX])
 
     @dynamo.put_item(
