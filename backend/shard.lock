@@ -6,7 +6,7 @@ shards:
 
   aws-dynamodb:
     git: https://github.com/veelenga/aws-dynamodb.cr.git
-    version: 0.1.0+git.commit.8d3d37c058ce2a612d5388201a348b77942d87c6
+    version: 0.1.0+git.commit.5340ae184a918dc74393ffd4817eed697fc61c71
 
   awscr-signer:
     git: https://github.com/taylorfinnell/awscr-signer.git
