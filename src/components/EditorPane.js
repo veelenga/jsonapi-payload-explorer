@@ -4,6 +4,7 @@ import JSONEditor from './JSONEditor';
 import Toolbar from './Toolbar';
 
 import { formattedJSON } from '../utils/json';
+import { savePayload } from '../utils/request';
 
 import './EditorPane.css';
 
@@ -25,6 +26,11 @@ export default class EditorPane extends React.Component {
     let { value } = event.target;
     let keyMap = value === 'vim' || value === 'emacs' ? value : 'default';
     this.setState({ keyMap });
+  }
+
+  async onSaveClicked(payload, event) {
+    const id = await savePayload(payload);
+    window.location.href = `/?id=${id}`;
   }
 
   render() {
@@ -58,6 +64,10 @@ export default class EditorPane extends React.Component {
             <option value="vim">Vim</option>
             <option value="emacs">Emacs</option>
           </select>
+
+          <button onClick={this.onSaveClicked.bind(this, object)}>
+            Save
+          </button>
 
         </Toolbar>
 

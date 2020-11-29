@@ -18,6 +18,20 @@ class App
     @router.when :get, "/payloads/:id" do |params|
       handle_get_item(params["id"])
     end
+
+    @router.when :options, "/payloads" do
+      {
+        status_code: 200,
+        body:        nil,
+      }
+    end
+
+    @router.when :options, "/payloads/:id" do
+      {
+        status_code: 200,
+        body:        nil,
+      }
+    end
   end
 
   def handle(route, body)

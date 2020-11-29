@@ -6,6 +6,7 @@ import ViewerPane from './components/ViewerPane';
 
 import { safeJSONParse } from './utils/json';
 import hashCode from './utils/string';
+import { getPayload } from './utils/request';
 
 import './App.css';
 
@@ -13,9 +14,16 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
 
-    let payload = payloadSample;
-    let object = safeJSONParse(payloadSample);
-    this.state = { payload, object };
+    const search = window.location.search;
+    const id = new URLSearchParams(search).get('id');
+    if (id) {
+      getPayload(id).then(this.onPayloadChanged.bind(this));
+      this.state = { payload: "", object: null };
+    } else {
+      let payload = payloadSample;
+      let object = safeJSONParse(payloadSample);
+      this.state = { payload, object };
+    }
 
     this.onPayloadChanged = this.onPayloadChanged.bind(this);
   }
