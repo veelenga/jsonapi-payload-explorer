@@ -7,6 +7,8 @@ import ViewerPane from './components/ViewerPane';
 import { safeJSONParse } from './utils/json';
 import hashCode from './utils/string';
 import { getPayload } from './utils/request';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import './App.css';
 
@@ -17,7 +19,11 @@ export default class App extends React.Component {
     const search = this.props.location.search;
     const id = new URLSearchParams(search).get('id');
     if (id) {
-      getPayload(id).then(this.onPayloadChanged.bind(this));
+      getPayload(id)
+        .then(this.onPayloadChanged.bind(this))
+        .catch(() => {
+          toast.error('Invalid payload identifier. Try a different one or create new.');
+        });
       this.state = { payload: "", object: null };
     } else {
       let payload = payloadSample;
@@ -39,6 +45,10 @@ export default class App extends React.Component {
 
     return(
       <div className="App">
+        <ToastContainer
+          position="top-center"
+          hideProgressBar
+        />
         <EditorPane
           className="splitpane"
           object={object}

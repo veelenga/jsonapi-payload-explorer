@@ -4,8 +4,12 @@ export async function getPayload(id) {
     headers: { 'Content-Type': 'application/json' }
   };
   const response = await fetch(`http://127.0.0.1:8000/payloads/${id}`, requestOptions);
-  const data = await response.json();
-  return data.payload;
+  if (response.ok) {
+    const data = await response.json();
+    return data.payload;
+  } else {
+    throw response.statusText;
+  }
 }
 
 export async function savePayload(payload) {
@@ -15,6 +19,10 @@ export async function savePayload(payload) {
     body: JSON.stringify(payload)
   };
   const response = await fetch('http://127.0.0.1:8000/payloads', requestOptions);
-  const data = await response.json();
-  return data['payload_id'];
+  if (response.ok) {
+    const data = await response.json();
+    return data['payload_id'];
+  } else {
+    throw response.statusText;
+  }
 }
