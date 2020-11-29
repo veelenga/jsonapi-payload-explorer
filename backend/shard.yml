@@ -19,6 +19,9 @@ dependencies:
     github: lambci/crambda
   aws-dynamodb:
     github: veelenga/aws-dynamodb.cr
+  hashids:
+    github: splattael/hashids.cr
+    version: 0.3.0
 
 development_dependencies:
   ameba:
