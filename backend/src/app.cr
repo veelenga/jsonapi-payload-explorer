@@ -9,7 +9,9 @@ class App
 
   def initialize
     @router = Router.new
-    @dynamo = Aws::DynamoDB::Client.new
+    @dynamo = Aws::DynamoDB::Client.new(
+      endpoint: ENV["DYNAMO_URL"]?
+    )
 
     @router.when :post, "/payloads" do |_params, body|
       payload = JSON.parse(body)["payload"].as_s? if body
@@ -81,5 +83,28 @@ class App
       body:        {"message": "Not Found"}.to_json,
       status_code: 404,
     }
+  end
+
+  def prepare_table
+    return if @dynamo.list_tables["TableNames"].includes?(DYNAMO_TABLE_NAME)
+    @dynamo.create_table(
+      TableName: DYNAMO_TABLE_NAME,
+      AttributeDefinitions: [
+        {
+          AttributeName: "PayloadId",
+          AttributeType: "S",
+        },
+      ],
+      KeySchema: [
+        {
+          AttributeName: "PayloadId",
+          KeyType:       "HASH",
+        },
+      ],
+      ProvisionedThroughput: {
+        ReadCapacityUnits:  5,
+        WriteCapacityUnits: 5,
+      },
+    )
   end
 end

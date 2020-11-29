@@ -6,7 +6,7 @@ shards:
 
   aws-dynamodb:
     git: https://github.com/veelenga/aws-dynamodb.cr.git
-    version: 0.1.0+git.commit.15bce4dab6fbae156f773ba9fa9bb5dd47be8576
+    version: 0.1.0+git.commit.8d3d37c058ce2a612d5388201a348b77942d87c6
 
   awscr-signer:
     git: https://github.com/taylorfinnell/awscr-signer.git
@@ -15,6 +15,10 @@ shards:
   crambda:
     git: https://github.com/lambci/crambda.git
     version: 0.2.0
+
+  hashids:
+    git: https://github.com/splattael/hashids.cr.git
+    version: 0.3.0
 
   radix:
     git: https://github.com/luislavena/radix.git

@@ -3,7 +3,7 @@ export async function getPayload(id) {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' }
   };
-  const response = await fetch(`http://127.0.0.1:8000/payloads/${id}`, requestOptions);
+  const response = await fetch(`http://127.0.0.1:8001/payloads/${id}`, requestOptions);
   if (response.ok) {
     const data = await response.json();
     return data.payload;
@@ -18,7 +18,7 @@ export async function savePayload(payload) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ payload: payload })
   };
-  const response = await fetch('http://127.0.0.1:8000/payloads', requestOptions);
+  const response = await fetch('http://127.0.0.1:8001/payloads', requestOptions);
   if (response.ok) {
     const data = await response.json();
     return data['payload_id'];

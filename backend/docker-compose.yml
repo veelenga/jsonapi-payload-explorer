@@ -1,0 +1,19 @@
+version: '2.1'
+
+services:
+  dynamodb:
+    image: amazon/dynamodb-local:1.13.5
+    expose:
+      - "8000"
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    image: jsonapi-payload-explorer-api
+    ports:
+      - "8001:8001"
+    env_file: .env
+    entrypoint: "./docker/entrypoint.sh"
