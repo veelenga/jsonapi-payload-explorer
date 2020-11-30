@@ -8,6 +8,7 @@ class App
   DYNAMO_TABLE_NAME = "Payloads"
 
   DEFAULT_HEADERS = {
+    "Content-Type"                 => "application/json",
     "Access-Control-Allow-Origin"  => ENV["CORS_DOMAINS"],
     "Access-Control-Allow-Methods" => "POST",
     "Access-Control-Allow-Headers" => "Content-Type, Authorization",
