@@ -4,7 +4,9 @@ import JSONEditor from './JSONEditor';
 import Toolbar from './Toolbar';
 
 import { formattedJSON } from '../utils/json';
+import { tryParseCURL } from '../utils/curl';
 import { savePayload } from '../utils/request';
+import { safeJSONParse } from '../utils/json';
 import { toast } from 'react-toastify';
 
 import './EditorPane.css';
@@ -13,14 +15,20 @@ export default class EditorPane extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { autoformat: true };
+    this.state = { autoformat: true, parseCURL: true };
     this.onAutoformattingToggle = this.onAutoformattingToggle.bind(this);
+    this.onParseCurlToggle = this.onParseCurlToggle.bind(this);
     this.onKeyMapSelected = this.onKeyMapSelected.bind(this);
   }
 
   onAutoformattingToggle(event) {
     let autoformat = event.target.checked;
     this.setState({ autoformat });
+  }
+
+  onParseCurlToggle(event) {
+    let parseCURL = event.target.checked;
+    this.setState({ parseCURL });
   }
 
   onKeyMapSelected(event) {
@@ -46,7 +54,14 @@ export default class EditorPane extends React.Component {
       onPayloadChanged
     } = this.props;
 
-    let { autoformat, keyMap } = this.state;
+    let { autoformat, parseCURL, keyMap } = this.state;
+
+    if (parseCURL) {
+      let parsedRequestBody = tryParseCURL(payload);
+      if (parsedRequestBody) {
+        [payload, object] = [parsedRequestBody, safeJSONParse(parsedRequestBody)];
+      }
+    }
 
     if (object && autoformat) {
       payload = formattedJSON(object);
@@ -61,6 +76,12 @@ export default class EditorPane extends React.Component {
             type="checkbox"
             onChange={this.onAutoformattingToggle}
             checked={autoformat} /> Autoformat
+
+          <input
+            className="parse-curl"
+            type="checkbox"
+            onChange={this.onParseCurlToggle}
+            checked={parseCURL} /> Parse cURL
 
           <select
             className="keyMap"
