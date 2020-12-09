@@ -8,6 +8,7 @@ import { tryParseCURL } from '../utils/curl';
 import { savePayload } from '../utils/request';
 import { safeJSONParse } from '../utils/json';
 import { toast } from 'react-toastify';
+import ReactTooltip from 'react-tooltip';
 
 import './EditorPane.css';
 
@@ -75,13 +76,21 @@ export default class EditorPane extends React.Component {
             className="autoformat"
             type="checkbox"
             onChange={this.onAutoformattingToggle}
-            checked={autoformat} /> Autoformat
+            checked={autoformat} />
+
+          <span className="settingText" data-tip data-for="autoformatTooltip">
+            Autoformat
+          </span>
 
           <input
             className="parse-curl"
             type="checkbox"
             onChange={this.onParseCurlToggle}
-            checked={parseCURL} /> Parse cURL
+            checked={parseCURL} />
+
+          <span className="settingText" data-tip data-for="parseCurlTooltip">
+            Parse cURL
+          </span>
 
           <select
             className="keyMap"
@@ -94,6 +103,15 @@ export default class EditorPane extends React.Component {
           <button onClick={this.onSaveClicked.bind(this)}>
             Save
           </button>
+
+          <ReactTooltip id="autoformatTooltip" effect="solid" place="right">
+            <span>Automatically format JSON when it is changed</span>
+          </ReactTooltip>
+
+          <ReactTooltip id="parseCurlTooltip" effect="solid" place="bottom">
+            <span>Parse JSON body from copied cURL request</span>
+            <img className="tooltipImg" src="./copy-curl.png" width="300" alt="copy curl example"/>
+          </ReactTooltip>
 
         </Toolbar>
 

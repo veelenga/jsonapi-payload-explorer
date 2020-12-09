@@ -2,3 +2,12 @@
   margin-top: 1px;
   margin-bottom: 1px;
 }
+
+.settingText {
+  margin-left: 1px;
+}
+
+.tooltipImg {
+  display: block;
+  margin: 10px 0px 10px 0px;
+}
