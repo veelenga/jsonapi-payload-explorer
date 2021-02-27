@@ -9,6 +9,7 @@ export function tryParseCURL(str) {
 
   // preprocess str
   str = str.replace('--data-binary $', '-d ');
+  str = str.replace('--data-binary', '-d ');
 
   const request = parseCURL(str);
 
