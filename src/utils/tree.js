@@ -30,12 +30,12 @@ function subtitle(object) {
   let attributeList = [];
   for(let key in object.attributes) {
     let value = object.attributes[key];
-    if (typeof(value) === 'object') {
+    if (typeof(value) === 'object' || typeof(value) === 'boolean') {
       value = JSON.stringify(value);
     }
     attributeList.push(
       <li key={key}>{key}: {value}</li>
     );
   }
-  return (<ul>{ attributeList}</ul>);
+  return (<ul>{attributeList}</ul>);
 }

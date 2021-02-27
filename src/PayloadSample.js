@@ -4,6 +4,7 @@ export default `{
     "id": "b358c1a4-516a-4e57-9d0d-a6dc7d2847d7",
     "attributes": {
       "role": "booker",
+      "isPrimary": true,
       "city": "New Denisefort",
       "streetName": "Timmy Key",
       "streetAddress": "94978 Sulema Club",
