@@ -3,10 +3,12 @@
   left: 0;
   right: 0;
   bottom: 0;
-  top: 20px;
+  top: var(--toolbar-height);
 }
 
 .CodeMirror {
   box-shadow: none !important;
   height: 100%;
+  font-family: var(--font-mono);
+  font-size: 13px;
 }

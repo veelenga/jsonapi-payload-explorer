@@ -1,11 +1,22 @@
 .App {
-  height: calc(100vh - 20px);
+  height: 100vh;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  background: var(--color-bg);
+}
+
+.App .panes {
+  flex: 1;
+  display: flex;
+  min-height: 0;
 }
 
 .App .splitpane {
   width: 50%;
-  border: 1px solid #eee;
+  min-width: 0;
   position: relative;
+}
+
+.App .splitpane + .splitpane {
+  border-left: 1px solid var(--color-border);
 }

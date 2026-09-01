@@ -1,13 +1,39 @@
-.keyMap {
-  margin-top: 1px;
-  margin-bottom: 1px;
+.setting {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  user-select: none;
 }
 
-.settingText {
-  margin-left: 1px;
+.setting input {
+  margin: 0;
+  accent-color: var(--color-accent);
+}
+
+.keyMap {
+  height: 26px;
+  padding: 0 6px;
+  font: inherit;
+  font-size: 13px;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+}
+
+.App .react-tooltip {
+  z-index: 10;
+  max-width: 340px;
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  line-height: 1.4;
 }
 
 .tooltipImg {
   display: block;
-  margin: 10px 0px 10px 0px;
+  margin: 10px 0;
+  border-radius: 6px;
 }

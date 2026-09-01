@@ -1,5 +1,10 @@
 import decorateForTree from "../../utils/tree"
 
+function firstSubtitleAttribute(decorated) {
+  let [name, , value] = decorated.subtitle.props.children[0].props.children
+  return [[].concat(name.props.children).join(''), value.props.children]
+}
+
 describe('decorateForTree', () => {
   test('it should return empty object if object is empty', () => {
     expect(decorateForTree({})).toEqual({})
@@ -28,9 +33,7 @@ describe('decorateForTree', () => {
     })
 
     expect(decorated.subtitle.props.children.length).toEqual(1)
-    expect(decorated.subtitle.props.children[0].props.children).toEqual(
-      ['s', ': ', 'foo']
-    )
+    expect(firstSubtitleAttribute(decorated)).toEqual(['s:', 'foo'])
   });
 
   test('it should decorate object with boolean attribute', () => {
@@ -55,8 +58,6 @@ describe('decorateForTree', () => {
     })
 
     expect(decorated.subtitle.props.children.length).toEqual(1)
-    expect(decorated.subtitle.props.children[0].props.children).toEqual(
-      ['isPrimary', ': ', 'true']
-    )
+    expect(firstSubtitleAttribute(decorated)).toEqual(['isPrimary:', 'true'])
   });
 });

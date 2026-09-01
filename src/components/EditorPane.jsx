@@ -7,7 +7,6 @@ import { formattedJSON } from '../utils/json';
 import { tryParseCURL } from '../utils/curl';
 import { safeJSONParse } from '../utils/json';
 import { Tooltip } from 'react-tooltip';
-import 'react-tooltip/dist/react-tooltip.css';
 
 import './EditorPane.css';
 
@@ -62,25 +61,21 @@ export default class EditorPane extends React.Component {
       <div className={className}>
 
         <Toolbar>
-          <input
-            className="autoformat"
-            type="checkbox"
-            onChange={this.onAutoformattingToggle}
-            checked={autoformat} />
-
-          <span className="settingText" data-tooltip-id="autoformatTooltip">
+          <label className="setting" data-tooltip-id="autoformatTooltip">
+            <input
+              type="checkbox"
+              onChange={this.onAutoformattingToggle}
+              checked={autoformat} />
             Autoformat
-          </span>
+          </label>
 
-          <input
-            className="parse-curl"
-            type="checkbox"
-            onChange={this.onParseCurlToggle}
-            checked={parseCURL} />
-
-          <span className="settingText" data-tooltip-id="parseCurlTooltip">
+          <label className="setting" data-tooltip-id="parseCurlTooltip">
+            <input
+              type="checkbox"
+              onChange={this.onParseCurlToggle}
+              checked={parseCURL} />
             Parse cURL
-          </span>
+          </label>
 
           <select
             className="keyMap"
@@ -90,11 +85,11 @@ export default class EditorPane extends React.Component {
             <option value="emacs">Emacs</option>
           </select>
 
-          <Tooltip id="autoformatTooltip" place="right">
+          <Tooltip id="autoformatTooltip" place="bottom-start">
             <span>Automatically format JSON when it is changed</span>
           </Tooltip>
 
-          <Tooltip id="parseCurlTooltip" place="bottom">
+          <Tooltip id="parseCurlTooltip" place="bottom-start">
             <span>Parse JSON body from copied cURL request</span>
             <img className="tooltipImg" src="./copy-curl.png" width="300" alt="copy curl example"/>
           </Tooltip>
