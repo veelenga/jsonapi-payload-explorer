@@ -14,8 +14,4 @@ yarn start
 
 ## Deployment
 
-Deploy to GitHub pages:
-
-```sh
-yarn run deploy
-```
+Every push to `master` deploys to GitHub Pages automatically via GitHub Actions.
