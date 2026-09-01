@@ -1,4 +1,4 @@
-import decorateForTree from "../../utils/tree.js"
+import decorateForTree from "../../utils/tree"
 
 describe('decorateForTree', () => {
   test('it should return empty object if object is empty', () => {

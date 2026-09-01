@@ -6,7 +6,7 @@ import Toolbar from './Toolbar';
 import { formattedJSON } from '../utils/json';
 import { tryParseCURL } from '../utils/curl';
 import { safeJSONParse } from '../utils/json';
-import ReactTooltip from 'react-tooltip';
+import { Tooltip } from 'react-tooltip';
 
 import './EditorPane.css';
 
@@ -67,7 +67,7 @@ export default class EditorPane extends React.Component {
             onChange={this.onAutoformattingToggle}
             checked={autoformat} />
 
-          <span className="settingText" data-tip data-for="autoformatTooltip">
+          <span className="settingText" data-tooltip-id="autoformatTooltip">
             Autoformat
           </span>
 
@@ -77,7 +77,7 @@ export default class EditorPane extends React.Component {
             onChange={this.onParseCurlToggle}
             checked={parseCURL} />
 
-          <span className="settingText" data-tip data-for="parseCurlTooltip">
+          <span className="settingText" data-tooltip-id="parseCurlTooltip">
             Parse cURL
           </span>
 
@@ -89,14 +89,14 @@ export default class EditorPane extends React.Component {
             <option value="emacs">Emacs</option>
           </select>
 
-          <ReactTooltip id="autoformatTooltip" effect="solid" place="right">
+          <Tooltip id="autoformatTooltip" place="right">
             <span>Automatically format JSON when it is changed</span>
-          </ReactTooltip>
+          </Tooltip>
 
-          <ReactTooltip id="parseCurlTooltip" effect="solid" place="bottom">
+          <Tooltip id="parseCurlTooltip" place="bottom">
             <span>Parse JSON body from copied cURL request</span>
             <img className="tooltipImg" src="./copy-curl.png" width="300" alt="copy curl example"/>
-          </ReactTooltip>
+          </Tooltip>
 
         </Toolbar>
 
