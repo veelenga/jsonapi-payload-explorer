@@ -1,0 +1,16 @@
+.errorBoundary {
+  margin: 16px;
+  padding: 16px;
+  font-size: 13px;
+  color: #a40e26;
+  background: #ffebe9;
+  border: 1px solid #ff818266;
+  border-radius: var(--radius);
+}
+
+.errorBoundary p {
+  margin: 6px 0 0;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}

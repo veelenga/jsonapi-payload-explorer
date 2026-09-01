@@ -25,9 +25,10 @@ function serializeObject(data, included, cache) {
 
     if (Array.isArray(relationshipData)) {
       let children = relationshipData
+        .filter(isRelationshipObject)
         .map((relationship) => serializeRelationship(relationship, included, cache));
       object.children.push(...children);
-    } else {
+    } else if (isRelationshipObject(relationshipData)) {
       let child = serializeRelationship(relationshipData, included, cache);
       object.children.push(child);
     }
@@ -52,6 +53,10 @@ function serializeRelationship(data, included, cache) {
   if (!relationship.method) relationship.method = data.method;
 
   return relationship;
+}
+
+function isRelationshipObject(data) {
+  return typeof data === 'object' && data !== null;
 }
 
 function findInIncluded(data, included) {
