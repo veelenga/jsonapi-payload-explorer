@@ -47,3 +47,10 @@
   color: var(--color-text);
   font-family: var(--font-mono);
 }
+
+@media (max-width: 768px) {
+  .Tree-view .rst__tree {
+    --rst-block-width: 24px;
+    padding: 8px;
+  }
+}
