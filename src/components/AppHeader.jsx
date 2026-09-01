@@ -11,7 +11,7 @@ export default function AppHeader() {
         </div>
       </div>
       <nav className="headerNav">
-        <a href="https://jsonapi.org/" target="_blank" rel="noreferrer">JSON:API spec</a>
+        <a className="specLink" href="https://jsonapi.org/" target="_blank" rel="noreferrer">JSON:API spec</a>
         <a href="https://github.com/veelenga/jsonapi-payload-explorer" target="_blank" rel="noreferrer">GitHub</a>
       </nav>
     </header>

@@ -58,3 +58,19 @@
 .appHeader .headerNav a:hover {
   background: rgba(255, 255, 255, 0.12);
 }
+
+@media (max-width: 768px) {
+  .appHeader {
+    padding: 8px 12px;
+  }
+
+  .appHeader .brandText p,
+  .appHeader .specLink {
+    display: none;
+  }
+
+  .appHeader .headerNav a {
+    font-size: 12px;
+    padding: 4px 10px;
+  }
+}
