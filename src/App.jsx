@@ -1,6 +1,7 @@
 import React from 'react';
 
 import payloadSample from './PayloadSample';
+import AppHeader from './components/AppHeader';
 import EditorPane from './components/EditorPane';
 import ViewerPane from './components/ViewerPane';
 
@@ -30,18 +31,22 @@ export default class App extends React.Component {
 
     return(
       <div className="App">
-        <EditorPane
-          className="splitpane"
-          object={object}
-          payload={payload}
-          onPayloadChanged={this.onPayloadChanged}
-        />
+        <AppHeader />
 
-        <ViewerPane
-          className="splitpane"
-          object={object}
-          hash={hashCode(payload)}
-        />
+        <div className="panes">
+          <EditorPane
+            className="splitpane"
+            object={object}
+            payload={payload}
+            onPayloadChanged={this.onPayloadChanged}
+          />
+
+          <ViewerPane
+            className="splitpane"
+            object={object}
+            hash={hashCode(payload)}
+          />
+        </div>
       </div>
     );
   }

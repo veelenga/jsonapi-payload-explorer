@@ -1,0 +1,60 @@
+.appHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #1e1b4b 0%, #4338ca 60%, #6d28d9 100%);
+  color: #ffffff;
+}
+
+.appHeader .brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.appHeader .brandMark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.appHeader .brandText h1 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.appHeader .brandText p {
+  margin: 0;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.appHeader .headerNav {
+  display: flex;
+  gap: 8px;
+}
+
+.appHeader .headerNav a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: background 0.15s ease;
+}
+
+.appHeader .headerNav a:hover {
+  background: rgba(255, 255, 255, 0.12);
+}

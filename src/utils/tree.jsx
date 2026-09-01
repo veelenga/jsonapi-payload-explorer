@@ -34,7 +34,9 @@ function subtitle(object) {
       value = JSON.stringify(value);
     }
     attributeList.push(
-      <li key={key}>{key}: {value}</li>
+      <li key={key}>
+        <span className="attributeName">{key}:</span> <span className="attributeValue">{value}</span>
+      </li>
     );
   }
   return (<ul>{attributeList}</ul>);

@@ -1,12 +1,42 @@
-.Tree-view .rst__rowSubtitle ul {
-  margin: 0;
-  line-height: 1;
-}
-
 .Tree-view .rst__tree {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  top: 20px;
+  top: var(--toolbar-height);
+  padding: 8px 12px;
+  --rst-line-color: #b6c2cf;
+}
+
+.Tree-view .rst__rowContents {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  background: var(--color-surface);
+}
+
+.Tree-view .rst__rowTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.Tree-view .rst__rowSubtitle ul {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+}
+
+.Tree-view .rst__rowSubtitle li {
+  font-size: 10px;
+  line-height: 11px;
+}
+
+.Tree-view .attributeName {
+  color: var(--color-text-muted);
+}
+
+.Tree-view .attributeValue {
+  color: var(--color-text);
+  font-family: var(--font-mono);
 }

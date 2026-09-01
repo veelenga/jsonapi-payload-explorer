@@ -29,7 +29,8 @@ test('renders editor and tree view with the sample payload', async () => {
     createRoot(container).render(<App />);
   });
 
+  expect(container.textContent).toContain('JSON:API Payload Explorer');
   expect(container.textContent).toContain('Autoformat');
   expect(container.textContent).toContain('Parse cURL');
-  expect(container.textContent).toContain('Search');
+  expect(container.querySelector('.searchBar input')).not.toBeNull();
 });

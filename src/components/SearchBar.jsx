@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './SearchBar.css';
 
-export default class Tree extends Component {
+export default class SearchBar extends Component {
   render() {
     let {
       handleSearchOnChange,
@@ -15,17 +15,17 @@ export default class Tree extends Component {
     let stats = `${currentSearchIndex} / ${totalFound}`;
     return (
       <div className="searchBar">
-        <label>Search: </label>
         <input
+          placeholder="Search payload…"
           onChange={handleSearchOnChange}
           value={searchString}
         />
 
         { searchString && totalFound > 1 &&
           <div className="control">
-            <button className="previous" onClick={selectPrevMatch}> ‹ </button>
-            <button className="next" onClick={selectNextMatch}> › </button>
-            <label className="stats"><span>{ stats }</span></label>
+            <button className="previous" onClick={selectPrevMatch}>‹</button>
+            <button className="next" onClick={selectNextMatch}>›</button>
+            <span className="stats">{ stats }</span>
           </div>
         }
       </div>
