@@ -11,7 +11,16 @@ export function tryParseCURL(str) {
   str = str.replace('--data-binary $', '-d ');
   str = str.replace('--data-binary', '-d ');
 
-  const request = parseCURL(str);
+  let request;
+  try {
+    request = parseCURL(str);
+  } catch {
+    return null;
+  }
+
+  if (!request || !request.header) {
+    return null;
+  }
 
   if ((request.header['Content-Type'] || '').indexOf('json') > 1 && request.body) {
     return request.body;

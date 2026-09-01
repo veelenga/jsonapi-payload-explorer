@@ -45,3 +45,13 @@ describe('tryParseCURL', () => {
     expect(tryParseCURL(command)).toEqual("{\"key1\":\"value1\", \"key2\":\"value2\"}")
   });
 });
+
+describe('tryParseCURL with malformed input', () => {
+  test('it should return null when curl has no space separator', () => {
+    expect(tryParseCURL('curl\n{"a":1}')).toBe(null)
+  });
+
+  test('it should return null on unbalanced quotes', () => {
+    expect(tryParseCURL("curl 'http://x -d abc")).toBe(null)
+  });
+});
