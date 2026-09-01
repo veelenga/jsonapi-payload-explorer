@@ -1,3 +1,8 @@
+.Tree-view .rst__rowSubtitle ul {
+  margin: 0;
+  line-height: 1;
+}
+
 .Tree-view .rst__tree {
   position: absolute;
   left: 0;

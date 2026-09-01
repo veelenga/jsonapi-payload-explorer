@@ -7,6 +7,7 @@ import { formattedJSON } from '../utils/json';
 import { tryParseCURL } from '../utils/curl';
 import { safeJSONParse } from '../utils/json';
 import { Tooltip } from 'react-tooltip';
+import 'react-tooltip/dist/react-tooltip.css';
 
 import './EditorPane.css';
 
