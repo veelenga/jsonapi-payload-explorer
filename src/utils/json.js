@@ -2,7 +2,7 @@ export function safeJSONParse(str) {
   if(typeof(str) !== 'string') return null;
   try {
     return JSON.parse(str);
-  } catch (_) {
+  } catch {
     return null;
   }
 }

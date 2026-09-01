@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import SortableTree from 'react-sortable-tree';
-import 'react-sortable-tree/style.css';
+import { SortableTree } from '@nosferatu500/react-sortable-tree';
+import '@nosferatu500/react-sortable-tree/style.css';
 import './TreeView.css';
 import SearchBar from './SearchBar';
 import Toolbar from './Toolbar';
@@ -68,7 +68,7 @@ export default class TreeView extends Component {
 
         <SortableTree
           canDrag={false}
-          rowHeight={(object) => DEFAULT_ROW_HEIGHT + (object.node.subtitleHeight || 0)}
+          rowHeight={(treeIndex, node) => DEFAULT_ROW_HEIGHT + (node.subtitleHeight || 0)}
           treeData={treeData}
           style={{ height: 'auto' }}
           onChange={(treeData) => this.setState({ treeData })}

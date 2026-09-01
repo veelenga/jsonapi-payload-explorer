@@ -57,9 +57,9 @@ function serializeRelationship(data, included, cache) {
 function findInIncluded(data, included) {
   let { id, type, [TEMP_ID]: tempId } = data;
 
-  if (!!id) {
+  if (id) {
     return included.find((data) => data.type === type && data.id === id);
-  } else if (!!tempId) {
+  } else if (tempId) {
     return included.find((data) => data.type === type && data[TEMP_ID] === tempId);
   }
 
