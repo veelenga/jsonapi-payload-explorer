@@ -12,8 +12,6 @@ yarn install
 yarn start
 ```
 
-See [instructions](./backend/README.md) how to run backend part.
-
 ## Deployment
 
 Deploy to GitHub pages:

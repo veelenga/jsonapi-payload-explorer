@@ -5,9 +5,7 @@ import Toolbar from './Toolbar';
 
 import { formattedJSON } from '../utils/json';
 import { tryParseCURL } from '../utils/curl';
-import { savePayload } from '../utils/request';
 import { safeJSONParse } from '../utils/json';
-import { toast } from 'react-toastify';
 import ReactTooltip from 'react-tooltip';
 
 import './EditorPane.css';
@@ -36,15 +34,6 @@ export default class EditorPane extends React.Component {
     let { value } = event.target;
     let keyMap = value === 'vim' || value === 'emacs' ? value : 'default';
     this.setState({ keyMap });
-  }
-
-  onSaveClicked() {
-    savePayload(this.props.payload).then((id) => {
-      toast.success("Saved! Copy the URL to share 👆");
-      this.props.history.push(`?id=${id}`);
-    }).catch((e) => {
-      toast.error('Failed to save! Try again later');
-    });
   }
 
   render() {
@@ -99,10 +88,6 @@ export default class EditorPane extends React.Component {
             <option value="vim">Vim</option>
             <option value="emacs">Emacs</option>
           </select>
-
-          <button onClick={this.onSaveClicked.bind(this)}>
-            Save
-          </button>
 
           <ReactTooltip id="autoformatTooltip" effect="solid" place="right">
             <span>Automatically format JSON when it is changed</span>
